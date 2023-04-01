@@ -1,0 +1,98 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 IMPORT           SVC_Handler_Main
+    3 00000000                 EXPORT           SVC_Handler
+    4 00000000                 EXPORT           ASM_Switch_To_Unprivileged
+    5 00000000         
+    6 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    7 00000000                 THUMB
+    8 00000000                 REQUIRE8
+    9 00000000                 PRESERVE8
+   10 00000000         
+   11 00000000         ; @brief  This function handles SVCall exception.
+   12 00000000         ; @param  None
+   13 00000000         ; @retval None
+   14 00000000         SVC_Handler
+   15 00000000 F01E 0F04       TST              LR, #4
+   16 00000004 BF0C F3EF 
+              8108             MRSEQ            R1, MSP
+   17 0000000A F3EF 8109       MRSNE            R1, PSP
+   18 0000000E         ;r1 <- sp
+   19 0000000E 6988            LDR              R0, [R1,#24]
+   20 00000010         ;r0 <- pc
+   21 00000010 F1A0 0002       SUB              R0, 2
+   22 00000014         ;r0 <- instruction pointer
+   23 00000014 6801            LDR              R1, [R0]
+   24 00000016         ; r1 <- instruction
+   25 00000016 F001 00FF       AND              R0, R1, 0xFF
+   26 0000001A F1A0 0001       SUB              R0, 1
+   27 0000001E 4428            ADD              R0, R5
+   28 00000020 F7FF BFFE       B                SVC_Handler_Main
+   29 00000024         
+   30 00000024         ASM_Switch_To_Unprivileged
+   31 00000024 F3EF 8014       MRS              R0, control
+   32 00000028 F040 0001       ORR              R0, #1
+   33 0000002C F380 8814       MSR              control, R0
+   34 00000030 4770            BX               LR
+   35 00000032         
+   36 00000032         
+   37 00000032         
+   38 00000032                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\output\user_asm.d -o.\output\user_asm.o -IF:\keli5\ARM\RV31\INC 
+-IF:\keli5\ARM\CMSIS\Include -IF:\keli5\ARM\INC\ST\STM32F10x --predefine="__EVA
+L SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 5
+36" --list=.\list\user_asm.lst user_asm.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 6 in file user_asm.s
+   Uses
+      None
+Comment: .text unused
+ASM_Switch_To_Unprivileged 00000024
+
+Symbol: ASM_Switch_To_Unprivileged
+   Definitions
+      At line 30 in file user_asm.s
+   Uses
+      At line 4 in file user_asm.s
+Comment: ASM_Switch_To_Unprivileged used once
+SVC_Handler 00000000
+
+Symbol: SVC_Handler
+   Definitions
+      At line 14 in file user_asm.s
+   Uses
+      At line 3 in file user_asm.s
+Comment: SVC_Handler used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SVC_Handler_Main 00000000
+
+Symbol: SVC_Handler_Main
+   Definitions
+      At line 2 in file user_asm.s
+   Uses
+      At line 28 in file user_asm.s
+Comment: SVC_Handler_Main used once
+1 symbol
+337 symbols in table

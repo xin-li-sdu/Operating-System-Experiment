@@ -1,0 +1,84 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 IMPORT           SVC_Handler_Main
+    3 00000000                 EXPORT           SVC_Handler
+    4 00000000                 EXPORT           ASM_Switch_To_Unprivileged
+    5 00000000         
+    6 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    7 00000000                 THUMB
+    8 00000000                 REQUIRE8
+    9 00000000                 PRESERVE8
+   10 00000000         
+   11 00000000         ; @brief  This function handles SVCall exception.
+   12 00000000         ; @param  None
+   13 00000000         ; @retval None
+   14 00000000         SVC_Handler
+   15 00000000 F7FF BFFE       B                SVC_Handler_Main
+   16 00000004         
+   17 00000004         ASM_Switch_To_Unprivileged
+   18 00000004 F3EF 8014       MRS              R0, control
+   19 00000008 F040 0001       ORR              R0, #1
+   20 0000000C F380 8814       MSR              control, R0
+   21 00000010 4770            BX               LR
+   22 00000012         
+   23 00000012         
+   24 00000012         
+   25 00000012                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\output\user_asm.d -o.\output\user_asm.o -IF:\keli5\ARM\RV31\INC 
+-IF:\keli5\ARM\CMSIS\Include -IF:\keli5\ARM\INC\ST\STM32F10x --predefine="__EVA
+L SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 5
+36" --list=.\list\user_asm.lst user_asm.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 6 in file user_asm.s
+   Uses
+      None
+Comment: .text unused
+ASM_Switch_To_Unprivileged 00000004
+
+Symbol: ASM_Switch_To_Unprivileged
+   Definitions
+      At line 17 in file user_asm.s
+   Uses
+      At line 4 in file user_asm.s
+Comment: ASM_Switch_To_Unprivileged used once
+SVC_Handler 00000000
+
+Symbol: SVC_Handler
+   Definitions
+      At line 14 in file user_asm.s
+   Uses
+      At line 3 in file user_asm.s
+Comment: SVC_Handler used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SVC_Handler_Main 00000000
+
+Symbol: SVC_Handler_Main
+   Definitions
+      At line 2 in file user_asm.s
+   Uses
+      At line 15 in file user_asm.s
+Comment: SVC_Handler_Main used once
+1 symbol
+337 symbols in table
