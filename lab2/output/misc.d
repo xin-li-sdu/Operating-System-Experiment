@@ -1,0 +1,16 @@
+.\output\misc.o: src\misc.c
+.\output\misc.o: .\include\misc.h
+.\output\misc.o: C:\Keil_v5\ARM\INC\ST\STM32F10x\stm32f10x.h
+.\output\misc.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\output\misc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\misc.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\output\misc.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\output\misc.o: C:\Keil_v5\ARM\INC\ST\STM32F10x\system_stm32f10x.h
+.\output\misc.o: .\include\stm32f10x_conf.h
+.\output\misc.o: .\include\stm32f10x_adc.h
+.\output\misc.o: C:\Keil_v5\ARM\INC\ST\STM32F10x\stm32f10x.h
+.\output\misc.o: .\include\stm32f10x_gpio.h
+.\output\misc.o: .\include\stm32f10x_i2c.h
+.\output\misc.o: .\include\stm32f10x_rcc.h
+.\output\misc.o: .\include\stm32f10x_usart.h
+.\output\misc.o: .\include\misc.h
