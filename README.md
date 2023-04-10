@@ -1,2 +1,12 @@
 # Operating-System-Experiment
-Operating System Experiments  of the School of Cyber Science and Technology, Shandong University
+​     Operating System Experiments  of the School of Cyber Science and Technology, Shandong University
+
+​     μC/OS II 是一个 专门为嵌入式应用设计的 实时操作系统 。除了一些和处理器相关的代码用汇编编写，其他绝大部分代码使用 C 语言， 所以在学习了 C 语言程序设计和计算机组成原理，阅读这个 操作系统 的代码并不困难。该操作系统具有很好的可扩展性，人们可以在 它具有很好的可扩展性，人们可以在这个系统的基础上二次开发很多功能 。同时 这个系统是开放源码的 不开放源码 也很难 有机会去学习 但是并不 代表这个 操作系统是免费的 当然对于学习 目的是免费） ），如果使用这个操作系统去完成某个产品，那么就需要购买 昂贵的 版权许可证。当然这也从侧面说明了这个操作系统的价值 既然用作商用，至少说明 它 是一个相当 靠谱 的系统 。另外，该系统也被 广泛使用在从照相机到航空电子产品的各种应用中。
+
+​    本实验为山东大学网络空间安全学院OS课程的实验仓库，关于μC/OS II 系统的调试和支持。
+
+
+
+### 特别注意
+
+请遵守学术诚信，本仓库仅供参考
