@@ -1,0 +1,119 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 IMPORT           SVC_Handler_Main
+    3 00000000                 EXPORT           SVC_Handler
+    4 00000000                 EXPORT           ASM_SysTick_Config
+    5 00000000                 IMPORT           OSIntEnter
+    6 00000000                 IMPORT           OSIntExit
+    7 00000000                 EXPORT           ASM_Switch_To_Unprivileged
+    8 00000000         
+    9 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+   10 00000000                 THUMB
+   11 00000000                 REQUIRE8
+   12 00000000                 PRESERVE8
+   13 00000000         
+   14 00000000         ; @brief  This function handles SVCall exception.
+   15 00000000         ; @param  None
+   16 00000000         ; @retval None
+   17 00000000         SVC_Handler
+   18 00000000 F01E 0F04       TST              LR, #4
+   19 00000004 BF0C F3EF 
+              8008             MRSEQ            R0, MSP
+   20 0000000A F3EF 8009       MRSNE            R0, PSP
+   21 0000000E F7FF BFFE       B                SVC_Handler_Main
+   22 00000012         
+   23 00000012         ASM_SysTick_Config
+   24 00000012 DFF2            SWI              #0xF2
+   25 00000014 4770            BX               LR
+   26 00000016         
+   27 00000016         ASM_Switch_To_Unprivileged
+   28 00000016 F3EF 8014       MRS              R0, control
+   29 0000001A F040 0001       ORR              R0, #1
+   30 0000001E F380 8814       MSR              control, R0
+   31 00000022 4770            BX               LR
+   32 00000024         
+   33 00000024         
+   34 00000024         
+   35 00000024                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\output\sys_call_handle.d -o.\output\sys_call_handle.o -Id:\Keil_
+v5\ARM\RV31\INC -Id:\Keil_v5\ARM\CMSIS\Include -Id:\Keil_v5\ARM\INC\ST\STM32F10
+x --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 525" --li
+st=.\list\sys_call_handle.lst sys_call_handle.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 9 in file sys_call_handle.s
+   Uses
+      None
+Comment: .text unused
+ASM_Switch_To_Unprivileged 00000016
+
+Symbol: ASM_Switch_To_Unprivileged
+   Definitions
+      At line 27 in file sys_call_handle.s
+   Uses
+      At line 7 in file sys_call_handle.s
+Comment: ASM_Switch_To_Unprivileged used once
+ASM_SysTick_Config 00000012
+
+Symbol: ASM_SysTick_Config
+   Definitions
+      At line 23 in file sys_call_handle.s
+   Uses
+      At line 4 in file sys_call_handle.s
+Comment: ASM_SysTick_Config used once
+SVC_Handler 00000000
+
+Symbol: SVC_Handler
+   Definitions
+      At line 17 in file sys_call_handle.s
+   Uses
+      At line 3 in file sys_call_handle.s
+Comment: SVC_Handler used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+OSIntEnter 00000000
+
+Symbol: OSIntEnter
+   Definitions
+      At line 5 in file sys_call_handle.s
+   Uses
+      None
+Comment: OSIntEnter unused
+OSIntExit 00000000
+
+Symbol: OSIntExit
+   Definitions
+      At line 6 in file sys_call_handle.s
+   Uses
+      None
+Comment: OSIntExit unused
+SVC_Handler_Main 00000000
+
+Symbol: SVC_Handler_Main
+   Definitions
+      At line 2 in file sys_call_handle.s
+   Uses
+      At line 21 in file sys_call_handle.s
+Comment: SVC_Handler_Main used once
+3 symbols
+339 symbols in table

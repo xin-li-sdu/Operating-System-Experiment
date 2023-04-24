@@ -1,0 +1,2 @@
+Dependencies for Project 'template', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_stm32f10x_md.s)(0x508759AC)(--cpu Cortex-M3 -g --apcs=interwork -I "D:\Program Files\Keil 4\ARM\RV31\INC" -I "D:\Program Files\Keil 4\ARM\CMSIS\Include" -I "D:\Program Files\Keil 4\ARM\Inc\ST\STM32F10x" --list "startup_stm32f10x_md.lst" --xref -o "startup_stm32f10x_md.o" --depend "startup_stm32f10x_md.d")
